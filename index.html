@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Multi-File Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Multi-File Player</h1>
+        </header>
+        
+        <div class="main-content">
+            <!-- 播放列表区域 -->
+            <div class="playlist-section">
+                <div class="playlist-header">
+                    <h2>播放列表</h2>
+                    <div class="playlist-controls">
+                        <button id="play-all-btn" class="btn-play">▶ 全部播放</button>
+                        <button id="pause-all-btn" class="btn-pause">⏸ 全部暂停</button>
+                        <button id="loop-toggle-btn" class="btn-loop loop-active">🔁 循环播放</button>
+                        <button id="clear-list-btn" class="btn-clear">🗑 清空列表</button>
+                        <button id="add-files-btn" class="btn-add">📁 添加文件</button>
+                        <button id="save-playlist-btn" class="btn-save">💾 保存列表</button>
+                        <button id="load-playlist-btn" class="btn-load">📂 加载列表</button>
+                    </div>
+                </div>
+                
+                <div class="master-controls">
+                    <div class="master-progress-control">
+                        <label for="master-progress">总体进度:</label>
+                        <input type="range" id="master-progress" min="0" max="100" value="0" disabled>
+                        <span id="master-progress-value">0%</span>
+                    </div>
+                    
+                    <div class="master-volume-control">
+                        <label for="master-volume">总体音量:</label>
+                        <input type="range" id="master-volume" min="0" max="100" value="100">
+                        <span id="master-volume-value">100%</span>
+                    </div>
+                </div>
+                
+                <div class="playlist-container">
+                    <ul id="playlist" class="playlist"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 文件选择对话框 (隐藏) -->
+    <input type="file" id="file-input" accept="audio/*,video/*" multiple style="display: none;">
+    <input type="file" id="load-playlist-input" accept=".json" style="display: none;">
+    
+    <script src="renderer.js"></script>
+</body>
+</html>
