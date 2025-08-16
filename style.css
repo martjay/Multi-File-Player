@@ -36,26 +36,29 @@ header {
     text-align: center;
 }
 
-header h1 {
-    font-size: 28px;
-    font-weight: 700;
-    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-    letter-spacing: 1px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
-    animation: titleGlow 3s ease-in-out infinite alternate;
+/* 波形图容器样式 */
+#waveform {
+    width: 100%;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-@keyframes titleGlow {
-    0% {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 10px rgba(79, 172, 254, 0.3);
-    }
-    100% {
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 0 20px rgba(79, 172, 254, 0.6), 0 0 30px rgba(0, 242, 254, 0.4);
-    }
+.waveform-visualizer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#waveform-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
 }
 
 .main-content {
@@ -153,6 +156,7 @@ header h1 {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     overflow: hidden;
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
 }
 
 /* 按钮凹凸效果 */
@@ -164,38 +168,39 @@ header h1 {
 .playlist-controls button:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #5d4b6e, #6e5a7f); /* 悬停时稍微亮一点 */
 }
 
-/* 不同功能按钮的颜色 */
+/* 不同功能按钮的颜色 - 现在统一为深紫灰色 */
 .btn-play {
-    background: linear-gradient(135deg, #2e7d32, #4caf50); /* 更暗的绿色 */
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
 }
 
 .btn-pause {
-    background: linear-gradient(135deg, #c62828, #f44336); /* 更暗的红色 */
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
 }
 
 .btn-loop {
-    background: linear-gradient(135deg, #1565c0, #2196f3); /* 更暗的蓝色 */
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
 }
 
 .btn-clear {
-    background: linear-gradient(135deg, #ef6c00, #ff9800); /* 更暗的橙色 */
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
     color: #fff;
 }
 
 .btn-add {
-    background: linear-gradient(135deg, #6a1b9a, #9c27b0); /* 更暗的紫色 */
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
     color: #fff;
 }
 
 .btn-save {
-    background: linear-gradient(135deg, #283593, #3f51b5); /* 更暗的靛蓝色 */
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
     color: #fff;
 }
 
 .btn-load {
-    background: linear-gradient(135deg, #00695c, #009688); /* 更暗的青色 */
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
     color: #fff;
 }
 
@@ -352,7 +357,7 @@ header h1 {
 }
 
 .playlist-item-controls .play-pause-btn {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
     border: none;
     color: #f0f0f0;
     cursor: pointer;
@@ -369,7 +374,7 @@ header h1 {
 }
 
 .playlist-item-controls .play-pause-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #5d4b6e, #6e5a7f); /* 悬停时稍微亮一点 */
     transform: scale(1.05);
 }
 
@@ -380,11 +385,11 @@ header h1 {
 /* 移除.playing和.paused的特殊样式，使所有播放按钮样式完全一致 */
 .playlist-item-controls .play-pause-btn.playing,
 .playlist-item-controls .play-pause-btn.paused {
-    background: linear-gradient(135deg, #2e7d32, #4caf50);
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
 }
 
 .playlist-item-controls .solo-btn {
-    background: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e); /* 深紫灰色 */
     border: none;
     color: #f0f0f0;
     cursor: pointer;
@@ -401,7 +406,7 @@ header h1 {
 }
 
 .playlist-item-controls .solo-btn:hover {
-    background: rgba(255, 255, 255, 0.2);
+    background: linear-gradient(135deg, #5d4b6e, #6e5a7f); /* 悬停时稍微亮一点 */
     transform: scale(1.05);
 }
 
@@ -473,12 +478,12 @@ header h1 {
 }
 
 .remove-btn {
-    background: linear-gradient(135deg, #c62828, #f44336) !important;
+    background: linear-gradient(135deg, #4b3f5d, #5d4b6e) !important; /* 深紫灰色 */
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 
 .remove-btn:hover {
-    background: linear-gradient(135deg, #d32f2f, #f5554a) !important;
+    background: linear-gradient(135deg, #5d4b6e, #6e5a7f) !important; /* 悬停时稍微亮一点 */
     transform: scale(1.05);
 }
 

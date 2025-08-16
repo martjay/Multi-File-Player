@@ -8,7 +8,7 @@
 <body>
     <div class="container">
         <header>
-            <h1>Multi-File Player</h1>
+            <div id="waveform"></div>
         </header>
         
         <div class="main-content">
@@ -52,6 +52,8 @@
     <input type="file" id="file-input" accept="audio/*,video/*" multiple style="display: none;">
     <input type="file" id="load-playlist-input" accept=".json" style="display: none;">
     
+    <!-- 引入在线WaveSurfer.js库 -->
+    <script src="wavesurfer.min.js"></script>
     <script src="renderer.js"></script>
 </body>
 </html>
